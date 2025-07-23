@@ -5,9 +5,7 @@ import { tempo } from "tempo-devtools/dist/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === "development"
-  ? "/"
-  : "/ghussaink.github.io/",
+  base: "/ghussaink.github.io/",
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
