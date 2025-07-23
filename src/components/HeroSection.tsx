@@ -1,146 +1,105 @@
-import React from "react";
+// components/HeroSection.tsx
 import { motion } from "framer-motion";
-import { ArrowDownToLine, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 import { Button } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 
-interface HeroSectionProps {
-  name?: string;
-  role?: string;
-  tagline?: string;
-  avatarUrl?: string;
-  resumeUrl?: string;
-  githubUrl?: string;
-  linkedinUrl?: string;
-}
-
-const HeroSection = ({
-  name = "Jane Doe",
-  role = "AI/ML Engineer | ML Pipeline Architect | Automation Specialist",
-  tagline = "Building intelligent systems that scale — from raw data to real-world impact.",
-  avatarUrl = "https://api.dicebear.com/7.x/avataaars/svg?seed=aidev",
-  resumeUrl = "#",
-  githubUrl = "https://github.com",
-  linkedinUrl = "https://linkedin.com",
-}: HeroSectionProps) => {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
+const heroVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      delayChildren: 0.4,
+      staggerChildren: 0.2,
     },
-  };
+  },
+};
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
-    },
-  };
-
+const HeroSection = () => {
   const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+    const section = document.getElementById("contact");
+    section?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-[700px] w-full bg-background flex items-center justify-center overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 z-0 opacity-10">
-        <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full bg-primary"
-              style={{
-                width: Math.random() * 300 + 50,
-                height: Math.random() * 300 + 50,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                x: [0, Math.random() * 100 - 50],
-                y: [0, Math.random() * 100 - 50],
-              }}
-              transition={{
-                repeat: Infinity,
-                repeatType: "reverse",
-                duration: Math.random() * 20 + 10,
-              }}
-            />
-          ))}
-        </div>
+    <motion.section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center px-4 py-28 text-center bg-background"
+      initial="hidden"
+      animate="visible"
+      variants={heroVariants}
+    >
+      {/* Background Blobs */}
+      <div className="absolute inset-0 -z-10 overflow-hidden opacity-20">
+        <div className="absolute bg-primary rounded-full w-72 h-72 top-20 left-10 blur-3xl animate-pulse" />
+        <div className="absolute bg-secondary rounded-full w-60 h-60 bottom-10 right-10 blur-2xl animate-ping" />
       </div>
 
-      <motion.div
-        className="relative z-10 max-w-5xl w-full flex flex-col items-center text-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div variants={itemVariants} className="mb-8">
-          <Avatar className="h-40 w-40 border-4 border-primary shadow-lg">
-            <AvatarImage src={avatarUrl} alt={name} />
-            <AvatarFallback className="text-4xl">
-              {name.charAt(0)}
-            </AvatarFallback>
+      <div className="max-w-3xl flex flex-col items-center space-y-6">
+        <motion.div variants={heroVariants}>
+          <Avatar className="h-32 w-32 border-4 border-primary shadow-md mb-4">
+            <AvatarImage
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=aieng"
+              alt="Avatar"
+            />
+            <AvatarFallback>AI</AvatarFallback>
           </Avatar>
         </motion.div>
 
         <motion.h1
-          variants={itemVariants}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
+          variants={heroVariants}
+          className="text-4xl md:text-6xl font-extrabold"
         >
-          {name}
+          Ghulam Hussain
         </motion.h1>
 
         <motion.h2
-          variants={itemVariants}
-          className="text-xl sm:text-2xl text-muted-foreground mb-6 max-w-2xl"
+          variants={heroVariants}
+          className="text-xl text-muted-foreground max-w-xl"
         >
-          {role}
+          AI/ML Engineer | LLM Architect | Automation Specialist
         </motion.h2>
 
         <motion.p
-          variants={itemVariants}
-          className="text-lg sm:text-xl mb-10 max-w-2xl"
+          variants={heroVariants}
+          className="text-lg text-muted-foreground max-w-2xl"
         >
-          {tagline}
+          Building intelligent systems that scale — from raw data to real-world
+          AI-powered impact.
         </motion.p>
 
         <motion.div
-          variants={itemVariants}
-          className="flex flex-wrap gap-4 justify-center"
+          variants={heroVariants}
+          className="flex flex-wrap justify-center gap-4 pt-4"
         >
           <Button asChild size="lg" className="gap-2">
-            <a href={resumeUrl} download>
-              <ArrowDownToLine className="h-5 w-5" />
-              Download Resume
+            <a href="/resume.pdf" download>
+              <Download className="w-5 h-5" />
+              Resume
             </a>
           </Button>
 
           <Button asChild variant="outline" size="lg" className="gap-2">
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github className="h-5 w-5" />
+            <a
+              href="https://github.com/gulamusen"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="w-5 h-5" />
               GitHub
             </a>
           </Button>
 
           <Button asChild variant="outline" size="lg" className="gap-2">
-            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-              <Linkedin className="h-5 w-5" />
+            <a
+              href="https://linkedin.com/in/gulamusen"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="w-5 h-5" />
               LinkedIn
             </a>
           </Button>
@@ -151,12 +110,12 @@ const HeroSection = ({
             size="lg"
             className="gap-2"
           >
-            <Mail className="h-5 w-5" />
-            Contact Me
+            <Mail className="w-5 h-5" />
+            Contact
           </Button>
         </motion.div>
-      </motion.div>
-    </section>
+      </div>
+    </motion.section>
   );
 };
 
