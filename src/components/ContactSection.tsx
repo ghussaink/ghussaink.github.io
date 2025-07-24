@@ -63,20 +63,24 @@ const ContactSection = () => {
             <Card className="border border-border bg-card/60 backdrop-blur-md">
               <CardContent className="p-6 space-y-6">
                 <form
-                  action="https://formspree.io/f/mnnzdqln"
+                  // action="https://formspree.io/f/mnnzdqln" // ✅ Formspree (Primary)
+                  action="https://formsubmit.co/ghulamhussain.career@gmail.com" // ✅ Formsubmit (Active)
                   method="POST"
                   className="space-y-6"
                 >
+                  {/* Formsubmit-specific hidden inputs */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input
+                    type="hidden"
+                    name="_next"
+                    value="https://ghulamhussainkhuhro.vercel.app/thank-you"
+                  />
+
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
                       Name
                     </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
-                      required
-                    />
+                    <Input id="name" name="name" placeholder="Your name" required />
                   </div>
 
                   <div className="space-y-2">
@@ -112,6 +116,7 @@ const ContactSection = () => {
                     </span>
                   </Button>
                 </form>
+
               </CardContent>
             </Card>
           </motion.div>
