@@ -25,6 +25,7 @@ const HeroSection = () => {
   };
 
   return (
+    <section id="hero" className="py-20">
     <motion.section
       id="hero"
       className="relative min-h-screen flex items-center justify-center px-4 py-28 text-center bg-background"
@@ -116,6 +117,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
     </motion.section>
+    </section>
   );
 };
 
