@@ -1,14 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { Send, Github, Linkedin, Mail, ExternalLink, CheckCircle } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card, CardContent } from "./ui/card";
 
 const ContactSection = () => {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 4000); // hide toast after 4 seconds
+  };
+
   const links = [
     {
       icon: Mail,
@@ -28,7 +35,19 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 md:px-6 bg-background">
+    <section id="contact" className="py-20 px-4 md:px-6 bg-background relative">
+      {showToast && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 bg-green-100 text-green-800 px-6 py-3 rounded-lg shadow-md flex items-center gap-2"
+        >
+          <CheckCircle className="w-5 h-5" />
+          Message sent successfully!
+        </motion.div>
+      )}
+
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -63,18 +82,15 @@ const ContactSection = () => {
             <Card className="border border-border bg-card/60 backdrop-blur-md">
               <CardContent className="p-6 space-y-6">
                 <form
-                  // action="https://formspree.io/f/mnnzdqln" // ✅ Formspree (Primary)
-                  action="https://formsubmit.co/ghulamhussain.career@gmail.com" // ✅ Formsubmit (Active)
+                // action="https://formspree.io/f/mnnzdqln" // ✅ Formspree (Primary)
+                  action="https://formsubmit.co/ghulamhussain.career@gmail.com"
+
                   method="POST"
+                  onSubmit={handleSubmit}
                   className="space-y-6"
                 >
-                  {/* Formsubmit-specific hidden inputs */}
                   <input type="hidden" name="_captcha" value="false" />
-                  <input
-                    type="hidden"
-                    name="_next"
-                    value="https://ghulamhussainkhuhro.vercel.app/thank-you"
-                  />
+                  {/* No _next redirect needed */}
 
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
@@ -116,7 +132,6 @@ const ContactSection = () => {
                     </span>
                   </Button>
                 </form>
-
               </CardContent>
             </Card>
           </motion.div>
