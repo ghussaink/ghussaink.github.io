@@ -1,42 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Send, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Card, CardContent } from "./ui/card";
-import { ToastAction } from "./ui/toast";
-import { useToast } from "./ui/use-toast";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormData({ name: "", email: "", message: "" });
-      toast({
-        title: "✅ Message Sent!",
-        description: "Thanks for reaching out. I’ll get back to you shortly.",
-        action: <ToastAction altText="Close">Close</ToastAction>,
-      });
-    }, 1500);
-  };
-
   const links = [
     {
       icon: Mail,
@@ -79,8 +51,7 @@ const ContactSection = () => {
             Let’s Build Something Intelligent Together
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base">
-            Whether it’s a collaboration, an opportunity, or a unique challenge —
-            I’m all ears and ready to connect.
+            Whether it’s a collaboration, an opportunity, or a unique challenge — I’m all ears and ready to connect.
           </p>
         </motion.div>
 
@@ -91,7 +62,11 @@ const ContactSection = () => {
           >
             <Card className="border border-border bg-card/60 backdrop-blur-md">
               <CardContent className="p-6 space-y-6">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  action="https://formspree.io/f/mnnzdqln"
+                  method="POST"
+                  className="space-y-6"
+                >
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
                       Name
@@ -99,8 +74,6 @@ const ContactSection = () => {
                     <Input
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       placeholder="Your name"
                       required
                     />
@@ -114,8 +87,6 @@ const ContactSection = () => {
                       id="email"
                       name="email"
                       type="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       placeholder="you@example.com"
                       required
                     />
@@ -128,49 +99,17 @@ const ContactSection = () => {
                     <Textarea
                       id="message"
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
                       placeholder="Let’s create something amazing..."
                       required
                       className="min-h-[140px]"
                     />
                   </div>
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full group"
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center gap-2">
-                        <svg
-                          className="animate-spin h-5 w-5"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          ></circle>
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="M4 12a8 8 0 018-8V0C5.37 0 0 5.37 0 12h4zm2 5.29A7.96 7.96 0 014 12H0c0 3.04 1.14 5.82 3 7.94l3-2.65z"
-                          ></path>
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        Send Message
-                        <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    )}
+                  <Button type="submit" className="w-full group">
+                    <span className="flex items-center gap-2">
+                      Send Message
+                      <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </Button>
                 </form>
               </CardContent>
