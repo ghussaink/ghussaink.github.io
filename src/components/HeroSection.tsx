@@ -81,7 +81,7 @@ const HeroSection = () => {
             className="flex flex-wrap justify-center gap-4 pt-4"
           >
             <Button asChild size="lg" className="gap-2">
-              <a href="/Resume_Ghulam_Hussain_Khuhro.pdf" download>
+              <a href="/Ghulam_Hussain_Resume_AI_Engineer.pdf" download>
                 <Download className="w-5 h-5" />
                 Resume
               </a>
