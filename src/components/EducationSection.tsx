@@ -12,18 +12,20 @@ interface EducationItem {
 
 const educationData: EducationItem[] = [
   {
-    degree: "Bachelor of Science in Artificial Intelligence",
-    institution: "National University of Sciences and Technology (NUST)",
-    location: "Islamabad, Pakistan",
-    duration: "2019 – 2023",
-    details: "Graduated with distinction. Specialized in Machine Learning, Deep Learning, and Natural Language Processing.",
+    degree: "Bachelor of Science in Software Engineering",
+    institution: "Mehran University of Engineering and Technology (MUET)",
+    location: "Jamshoro, Pakistan",
+    duration: "2023 – 2027",
+    details:
+      "GPA: 3.79 (94.75%). Specialized in Machine Learning, NLP, and Intelligent Systems. Gained practical experience building ML models using Python, cloud platforms, and open-source tools.",
   },
   {
-    degree: "Online Certifications & Specializations",
-    institution: "DeepLearning.AI, Coursera, fast.ai",
+    degree: "AI/ML Certifications & Specializations",
+    institution: "Coursera, DeepLearning.AI, Microsoft Learn, fast.ai",
     location: "Remote",
-    duration: "2022 – Present",
-    details: "Completed practical coursework in Prompt Engineering, LLMOps, Vector Databases, and Generative AI using real-world projects.",
+    duration: "2023 – Present",
+    details:
+      "Completed coursework in Prompt Engineering, LLMOps, Vector Search, and Generative AI. Certified in Machine Learning (Andrew Ng), LLMs, and 20+ micro-courses across applied AI domains.",
   },
 ];
 

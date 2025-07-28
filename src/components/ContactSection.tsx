@@ -16,23 +16,24 @@ const ContactSection = () => {
     setTimeout(() => setShowToast(false), 4000); // hide toast after 4 seconds
   };
 
-  const links = [
-    {
-      icon: Mail,
-      label: "contact@aiportfolio.com",
-      href: "mailto:contact@aiportfolio.com",
-    },
-    {
-      icon: Github,
-      label: "GitHub Profile",
-      href: "https://github.com/ai-engineer",
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn Profile",
-      href: "https://linkedin.com/in/ai-engineer",
-    },
-  ];
+const links = [
+  {
+    icon: Mail,
+    label: "ghulamhussain.career@gmail.com",
+    href: "mailto:ghulamhussain.career@gmail.com",
+  },
+  {
+    icon: Github,
+    label: "GitHub Profile",
+    href: "https://github.com/ghulamhussainkhuhro",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn Profile",
+    href: "https://linkedin.com/in/ghulamhussainkhuhro",
+  },
+];
+
 
   return (
     <section id="contact" className="py-20 px-4 md:px-6 bg-background relative">
@@ -44,7 +45,7 @@ const ContactSection = () => {
           className="fixed top-5 left-1/2 transform -translate-x-1/2 z-50 bg-green-100 text-green-800 px-6 py-3 rounded-lg shadow-md flex items-center gap-2"
         >
           <CheckCircle className="w-5 h-5" />
-          Message sent successfully!
+          Thanks! I’ll get back to you shortly.
         </motion.div>
       )}
 

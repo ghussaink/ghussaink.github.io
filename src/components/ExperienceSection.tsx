@@ -4,12 +4,12 @@ import { Card } from "./ui/card";
 
 const experiences = [
   {
-    role: "AI/ML Engineering Intern",
+    role: "AI/ML Intern",
     company: "DevelopersHub Corporation",
     location: "Remote — Pakistan",
-    duration: "Jun 2025 – Jul 2025",
+    duration: "May 2025 – July 2025",
     description:
-      "Built machine learning pipelines with scikit-learn, deployed Streamlit apps, and developed AI agents. Completed 3 major projects, including a PDF chatbot and churn prediction pipeline.",
+      "Designed and deployed 6+ real-world LLM applications including PDF support bots and RAG assistants. Built vector-search powered agents using LangChain and GPT-4. Improved system performance through prompt engineering and scalable ML pipelines.",
     link: "https://developershub.dev",
   },
   {
@@ -18,7 +18,7 @@ const experiences = [
     location: "Remote",
     duration: "2024 – Present",
     description:
-      "Delivered AI solutions including custom LLM agents, AI-powered chatbots, and automation tools for clients across various domains. Specialized in OpenAI, LangChain, and vector search.",
+      "Delivered custom AI solutions for startups and solo founders. Built LLM-based chatbots, automation agents, and RAG systems using OpenAI APIs, LangChain, and FAISS. Focused on rapid prototyping, deployment via Streamlit/FastAPI, and client-ready AI workflows.",
   },
 ];
 

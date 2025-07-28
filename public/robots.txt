@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ghulamhussainkhuhro.vercel.app/sitemap.xml

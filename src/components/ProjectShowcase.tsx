@@ -35,66 +35,60 @@ interface ProjectShowcaseProps {
 const defaultProjects: Project[] = [
   {
     id: "1",
-    title: "Neural Machine Translation System",
+    title: "Context-Aware RAG Chatbot",
     description:
-      "End-to-end multilingual translation system using attention-based Transformers. Scored 32.4 BLEU on WMT benchmarks.",
-    image:
-      "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=800&q=80",
+      "Created an LLM-powered chatbot with document-aware memory using LangChain and OpenAI APIs. Supports long conversations with persistent context and semantic RAG retrieval.",
+    image: "RAG.jpg",
     technologies: [
-      { name: "PyTorch" },
-      { name: "Transformers", color: "secondary" },
-      { name: "FastAPI" },
-      { name: "Docker", color: "outline" },
+      { name: "LangChain", color: "secondary" },
+      { name: "OpenAI" },
+      { name: "RAG Pipelines" },
+      { name: "Streamlit", color: "outline" },
     ],
-    githubUrl: "https://github.com",
-    demoUrl: "https://demo.com",
+    githubUrl: "https://github.com/ghulamhussainkhuhro/context-aware-chatbot-langchain",
   },
   {
     id: "2",
-    title: "Automated ML Pipeline Framework",
+    title: "WhatsApp GPT Bot",
     description:
-      "MLOps system with auto feature engineering, retraining, and cloud deployment. Enabled reproducibility and CI/CD.",
-    image:
-      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80",
+      "Integrated Azure OpenAI + LangChain to deploy a GPT bot for WhatsApp with long-term memory and Streamlit UI. Used Twilio for real-time message routing and feedback tracking.",
+    image: "waBOT.jpg",
     technologies: [
-      { name: "Python" },
-      { name: "MLflow", color: "secondary" },
-      { name: "Airflow" },
-      { name: "Kubernetes", color: "outline" },
+      { name: "LangChain", color: "secondary" },
+      { name: "Azure OpenAI" },
+      { name: "Streamlit" },
+      { name: "Twilio", color: "outline" },
     ],
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/ghulamhussainkhuhro/whatsapp-gpt-bot",
   },
   {
     id: "3",
-    title: "LLM-Powered Document Analysis",
+    title: "Auto Ticket Tagger (LLM)",
     description:
-      "Legal doc parser using fine-tuned LLMs. Extracted actionable insights with 94% accuracy on multi-domain corpora.",
-    image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+      "Developed an automated support ticket labeling system using GPT-3.5 with zero/few-shot prompting. Cut manual triage time by 70% for simulated datasets.",
+    image: "ticket.jpg",
     technologies: [
-      { name: "LangChain" },
-      { name: "HuggingFace", color: "secondary" },
-      { name: "LlamaIndex" },
-      { name: "AWS Lambda", color: "outline" },
+      { name: "OpenAI" },
+      { name: "Prompt Engineering", color: "secondary" },
+      { name: "Python" },
     ],
-    githubUrl: "https://github.com",
-    demoUrl: "https://demo.com",
+    githubUrl: "https://github.com/ghulamhussainkhuhro/auto-ticket-tagger-llm",
   },
   {
-    id: "4",
-    title: "Computer Vision for Retail Analytics",
-    description:
-      "Real-time object detection for customer behavior analysis in retail stores. Helped optimize layout for +13% sales uplift.",
-    image:
-      "https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=800&q=80",
-    technologies: [
-      { name: "TensorFlow" },
-      { name: "OpenCV", color: "secondary" },
-      { name: "YOLO" },
-      { name: "Azure ML", color: "outline" },
-    ],
-    githubUrl: "https://github.com",
-  },
+  id: "4",
+  title: "Customer Churn Prediction System",
+  description:
+    "Built a modular ML pipeline to predict customer churn using scikit-learn, ColumnTransformer, and GridSearchCV. Achieved 80% accuracy with clean reproducible code, model persistence, and evaluation tracking.",
+  image: "Churn.jpg",
+  technologies: [
+    { name: "scikit-learn", color: "secondary" },
+    { name: "GridSearchCV" },
+    { name: "Python" },
+    { name: "Pipeline Architecture", color: "outline" },
+  ],
+  githubUrl: "https://github.com/ghulamhussainkhuhro/customer-churn-prediction-system",
+}
+
 ];
 
 const cardVariants = {

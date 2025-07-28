@@ -15,37 +15,37 @@ const services = [
     title: "AI Agent Development",
     icon: Bot,
     description:
-      "Custom autonomous agents tailored for workflows, RAG pipelines, and decision-making systems.",
+      "Design and build autonomous agents for task automation, RAG pipelines, and decision-support systems.",
   },
   {
-    title: "LLM Integration",
+    title: "LLM Application Integration",
     icon: Brain,
     description:
-      "Integrate GPT-like models into SaaS, internal tools, or customer experiences.",
+      "Embed GPT-like models into SaaS products, internal tools, or user-facing applications with tailored prompting.",
   },
   {
-    title: "Intelligent Chatbots",
+    title: "Conversational AI Systems",
     icon: MessageSquareCode,
     description:
-      "Conversational agents with memory, context, and API tools powered by LLMs.",
+      "Develop smart chatbots with memory, context handling, and API integrations powered by LLMs.",
   },
   {
     title: "ML Model Deployment",
     icon: Rocket,
     description:
-      "End-to-end pipelines using FastAPI, Streamlit, or Docker for scalable deployments.",
+      "Deploy machine learning models using FastAPI, Streamlit, or Docker with scalable, production-ready infrastructure.",
   },
   {
-    title: "Automation & Data Pipelines",
+    title: "Data Pipelines & Automation",
     icon: Workflow,
     description:
-      "ETL workflows, real-time triggers, and AI-enhanced automation using tools like Airflow or LangChain.",
+      "Create ETL pipelines, automate workflows, and integrate AI into real-time systems using Airflow and LangChain.",
   },
   {
-    title: "AI Consulting & Prototyping",
+    title: "AI Prototyping & Consulting",
     icon: Database,
     description:
-      "Prototype and ship impactful AI solutions fast for startups or enterprise teams.",
+      "Rapidly prototype and consult on AI solutions for startups and enterprises to accelerate product development.",
   },
 ];
 

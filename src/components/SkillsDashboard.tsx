@@ -6,7 +6,6 @@ import {
   CardContent,
   CardTitle,
 } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import {
   Tooltip,
   TooltipProvider,
@@ -17,46 +16,50 @@ import { Brain, Rocket, Cloud, Settings } from "lucide-react";
 
 const categories = [
   {
-    title: "LLMs & Intelligent Agents",
+    title: "LLMs & AI Agents",
     icon: <Brain className="w-5 h-5" />,
-    tooltip: "RAG, agentic workflows, vector DBs, OpenAI, LangChain",
+    tooltip:
+      "Experience with LangChain, Retrieval-Augmented Generation (RAG), and vector databases.",
     skills: [
       { name: "LangChain / LlamaIndex", level: 90 },
       { name: "OpenAI / Azure OpenAI", level: 95 },
-      { name: "Vector DBs (Pinecone, FAISS)", level: 85 },
+      { name: "FAISS / Pinecone (Vector DBs)", level: 85 },
       { name: "RAG Pipelines", level: 90 },
       { name: "Agentic Workflows", level: 80 },
     ],
   },
   {
-    title: "MLOps & AI Engineering",
+    title: "MLOps & Engineering",
     icon: <Settings className="w-5 h-5" />,
-    tooltip: "CI/CD, Monitoring, ML lifecycle, Docker, K8s",
+    tooltip:
+      "ML lifecycle management with Docker, CI/CD pipelines, monitoring, and reproducibility tools.",
     skills: [
       { name: "MLflow / Weights & Biases", level: 85 },
       { name: "Docker / Kubernetes", level: 80 },
-      { name: "CI/CD for ML", level: 75 },
-      { name: "Monitoring / Alerting", level: 70 },
+      { name: "CI/CD Workflows", level: 75 },
+      { name: "Monitoring & Logging", level: 70 },
     ],
   },
   {
-    title: "Cloud & API Deployment",
+    title: "Cloud Deployment & APIs",
     icon: <Cloud className="w-5 h-5" />,
-    tooltip: "API deployment, serverless, Swagger/Postman",
+    tooltip:
+      "APIs, serverless deployment, and integration tools like FastAPI, Lambda, and Swagger.",
     skills: [
-      { name: "Azure ML / AWS SageMaker", level: 80 },
       { name: "FastAPI / Flask", level: 90 },
-      { name: "Serverless (Lambda / Azure Functions)", level: 75 },
+      { name: "Azure ML / AWS SageMaker", level: 80 },
+      { name: "Serverless (Lambda, Azure Fn)", level: 75 },
       { name: "Postman / Swagger", level: 85 },
     ],
   },
   {
-    title: "AI Application Stack",
+    title: "Core AI Development",
     icon: <Rocket className="w-5 h-5" />,
-    tooltip: "Python, Scikit-learn, Transformers, Streamlit",
+    tooltip:
+      "Solid foundations in Python, ML libraries, and transformer-based modeling.",
     skills: [
       { name: "Python / Pandas / NumPy", level: 95 },
-      { name: "Scikit-learn / XGBoost", level: 85 },
+      { name: "scikit-learn / XGBoost", level: 85 },
       { name: "HuggingFace Transformers", level: 90 },
       { name: "Streamlit / Gradio", level: 80 },
     ],
@@ -106,19 +109,17 @@ const SkillsDashboard = () => {
                   </TooltipProvider>
                 </CardHeader>
 
-                <CardContent className="space-y-4">
-                  {cat.skills.map((skill, idx) => (
-                    <div key={idx} className="space-y-1">
-                      <div className="flex justify-between text-sm">
-                        <span>{skill.name}</span>
-                        <span className="text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <Progress
-                        value={skill.level}
-                        className="h-2 bg-muted"
-                      />
-                    </div>
-                  ))}
+                <CardContent>
+                  <div className="flex flex-wrap gap-2 mt-2">
+                    {cat.skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 text-sm rounded-full bg-muted text-foreground"
+                      >
+                        {skill.name}
+                      </span>
+                    ))}
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>

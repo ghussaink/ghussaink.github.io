@@ -12,19 +12,19 @@ export interface TestimonialItem {
 
 const testimonialData: TestimonialItem[] = [
   {
-    name: "Dr. Sarah Chen",
-    role: "AI Research Director, Google",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
+    name: "Mentor - AI Bootcamp",
+    role: "Senior AI Mentor",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=mentor1",
     quote:
-      "One of the most self-driven AI engineers I've mentored — always delivers exceptional results with precision and creativity. A rare talent in the modern AI landscape.",
+      "Showed exceptional initiative and skill in building LLM-based tools during the bootcamp. One of the standout performers in my cohort.",
     rating: 5,
   },
   {
-    name: "Michael Rodriguez",
-    role: "Senior ML Engineer, OpenAI",
-    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=michael",
+    name: "Teammate - Internship",
+    role: "Data Scientist, DevelopersHub",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=colleague1",
     quote:
-      "His understanding of LLM pipelines and ability to ship production-grade AI tools is exceptional. Ghulam blends research insight with real-world engineering like no other.",
+      "Worked alongside Ghulam during our internship. His LangChain and deployment work was critical to shipping our LLM project on time.",
     rating: 5,
   },
 ];
@@ -52,7 +52,7 @@ const TestimonialsSection = () => (
   >
     <div className="max-w-5xl mx-auto text-center mb-12">
       <h2 className="text-4xl font-bold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500">
-        What People Say
+        Endorsements & Feedback
       </h2>
       <p className="text-muted-foreground text-lg">
         Powerful words from people I’ve worked with in the AI industry.
